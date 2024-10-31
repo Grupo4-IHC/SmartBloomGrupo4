@@ -130,8 +130,6 @@ nav ul li a {
 
 .feature-content p {
     font-size: 1em;
-    font-style: italic;
-    transform: rotate(-15deg); /* Inclinación del texto */
     color: #333333;
     margin: 0;
 }
