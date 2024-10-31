@@ -10,6 +10,7 @@ body {
     color: #FFFFFF;
     background-color: #1a1a1a;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 header {
@@ -22,6 +23,7 @@ header {
     width: 100%;
     top: 0;
     z-index: 10;
+    transition: background-color 0.5s ease;
 }
 
 header .logo h1 {
@@ -38,15 +40,21 @@ nav ul li a {
     color: #FFFFFF;
     text-decoration: none;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
+nav ul li a:hover {
+    color: #A0C95F;
+}
+
+/* Banner styling */
 .banner {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     height: 100vh;
-    background-image: url('/img/background-image.jpg'); /* Asegúrate de que la ruta sea correcta */
+    background-image: url('/img/background-image.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -54,19 +62,22 @@ nav ul li a {
 }
 
 .banner::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Oscurece la imagen de fondo */
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 0;
 }
 
 .banner-content {
     position: relative;
     z-index: 1;
     color: #FFFFFF;
+    opacity: 1;
+    animation: fadeIn 1.5s ease-out forwards;
 }
 
 .banner-content h1 {
@@ -79,33 +90,54 @@ nav ul li a {
     margin-bottom: 20px;
 }
 
+/* Button styling */
+.button {
+    text-align: center;
+    margin-top: 20px;
+}
+
 .btnBanner {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 25px;
     background-color: #4CAF50;
     color: #FFFFFF;
     font-weight: bold;
     text-decoration: none;
     border-radius: 5px;
+    transition: transform 0.2s ease;
+    text-align: center;
+    width: auto;
 }
 
 .btnBanner:hover {
-    background-color: #45a049;
+    transform: scale(1.05);
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2);
 }
 
+/* Features section */
 .features {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    padding: 50px;
-    background-color: #A0C95F; /* Fondo verde general de la sección */
+    padding: 130px 50px;
+    background-color: #A0C95F;
     text-align: center;
+    min-height: 100vh;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 1.5s ease-out forwards;
 }
 
 .feature-item {
-    /* background-color: #D2E7B5; Fondo verde claro para cada columna */
+    background-color: #D2E7B5;
     padding: 20px;
     border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
 }
 
 .feature-logo {
@@ -115,14 +147,14 @@ nav ul li a {
 }
 
 .feature-item h3 {
-    color: #3B5323; /* Verde oscuro para el título */
+    color: #3B5323;
     font-size: 1.1em;
     font-weight: bold;
     margin: 10px 0;
 }
 
 .feature-content {
-    background-color: #E5F0D3; /* Fondo de color diferente solo para el texto */
+    background-color: #E5F0D3;
     padding: 15px;
     border-radius: 8px;
     margin-top: 15px;
@@ -134,9 +166,32 @@ nav ul li a {
     margin: 0;
 }
 
-/* Ajustes para pantallas pequeñas */
-@media (max-width: 768px) {
-    .features {
-        grid-template-columns: 1fr; /* Cambia a una columna en pantallas pequeñas */
+/* Center last button in features */
+.features .button {
+    grid-column: 1 / -1;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
