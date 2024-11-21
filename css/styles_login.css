@@ -71,11 +71,19 @@ body {
 .text-right {
     text-align: right;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .txt1, .txt2, .txt3 {
     font-size: 14px;
     color: #666;
+}
+
+.txt1-rec {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 10px;
+    margin-left: 10px;
 }
 
 .txt2, .txt3 {
@@ -95,6 +103,13 @@ body {
     margin-top: 20px;
 }
 
+.container-login100-form-btn-volver {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
 .login100-form-btn {
     width: 100%;
     padding: 12px;
@@ -108,8 +123,45 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.login100-form-btn:hover {
+.login100-form-btn-volver {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #41b54a;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 1s ease;
+    transition: border 0.3s ease;
+}
+
+
+.recuperacion{
+    margin-top: 30px;
+}
+
+.login100-form-btn-rec {
+    width: 30%;
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #41b54a;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+.login100-form-btn:hover, .login100-form-btn-rec:hover {
     background-color: #369e3e;
+}
+
+.login100-form-btn-volver:hover {
+    background-color: #fff;
+    border: 1px solid #999;
 }
 
 .flex-col-c {
